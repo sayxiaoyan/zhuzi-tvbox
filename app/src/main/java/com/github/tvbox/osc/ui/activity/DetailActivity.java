@@ -188,7 +188,7 @@ public class DetailActivity extends BaseActivity {
         mGridViewFlag.setAdapter(seriesFlagAdapter);
         isReverse = false;
         firstReverse = false;
-        HawkConfig.MP3_BG= "";
+        Hawk.put(HawkConfig.MP3_BG, "");
         preFlag = "";
         if (showPreview) {
             playFragment = new PlayFragment();
@@ -667,7 +667,7 @@ public class DetailActivity extends BaseActivity {
 
                         if(vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url.endsWith(".mp3")){//保存设置mp3背景
                             if(!Hawk.get(HawkConfig.MP3_BG, "").isEmpty()) {
-                                HawkConfig.MP3_BG= "";
+                                Hawk.put(HawkConfig.MP3_BG, "");
                             }			
                            Hawk.put(HawkConfig.MP3_BG, mVideo.pic);
                         }
