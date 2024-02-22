@@ -111,7 +111,7 @@ public abstract class BaseController extends BaseVideoController implements Gest
         mLoading = findViewWithTag("vod_control_loading");
         mPauseRoot = findViewWithTag("vod_control_pause");
         mPauseTime = findViewWithTag("vod_control_pause_t");
-		mp3bg = findViewWithTag("mp3bg");
+        mp3bg = findViewWithTag("mp3bg");
     }
 
     @Override
@@ -130,12 +130,11 @@ public abstract class BaseController extends BaseVideoController implements Gest
             case VideoView.STATE_PLAYING:
                 mPauseRoot.setVisibility(GONE);
                 mLoading.setVisibility(GONE);
-				
-				if(!Hawk.get(HawkConfig.MP3_BG, "").isEmpty()){
-					mp3bg.setVisibility(VISIBLE);//MP3背景有地址，显示
+                if(Hawk.get(HawkConfig.MP3_BG, false)){
+                    mp3bg.setVisibility(VISIBLE);//MP3背景有地址，显示
 				}else{
-					mp3bg.setVisibility(GONE);
-				}
+                    mp3bg.setVisibility(GONE);
+                }
                 break;
             case VideoView.STATE_PAUSED:
                 mPauseRoot.setVisibility(VISIBLE);
