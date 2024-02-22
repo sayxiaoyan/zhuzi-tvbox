@@ -626,7 +626,6 @@ public class DetailActivity extends BaseActivity {
                     } else {
                         ivThumb.setImageResource(R.drawable.img_loading_placeholder);
                     }
-					
 
                     if (vodInfo.seriesMap != null && vodInfo.seriesMap.size() > 0) {
                         mGridViewFlag.setVisibility(View.VISIBLE);
@@ -664,10 +663,16 @@ public class DetailActivity extends BaseActivity {
                             } else
                                 flag.selected = false;
                         }
-						Hawk.put(HawkConfig.MP3_BG, "");
-					if(vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url.endsWith(".mp3")){//保存设置mp3背景
-						Hawk.put(HawkConfig.MP3_BG, mVideo.pic);
-					}
+                        ArrayList<String> Mp3lis = Hawk.get(HawkConfig.MP3_BG, new ArrayList<String>());
+                        if(vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url.endsWith(".mp3")){//保存设置mp3背景
+                            if (Mp3lis.size() > 1) {
+                                Mp3lis.clear(); 
+                            }			
+                           Hawk.put(HawkConfig.MP3_BG, mVideo.pic);
+                        }else{
+                            Mp3lis.clear(); 
+						
+                        }
 						
                         //设置播放地址
                         setTextShow(tvPlayUrl, "播放地址：", vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url);
