@@ -665,12 +665,14 @@ public class DetailActivity extends BaseActivity {
                         }
                         ArrayList<String> Mp3lis = Hawk.get(HawkConfig.MP3_BG, new ArrayList<String>());
                         if(vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url.endsWith(".mp3")){//保存设置mp3背景
-                            if (Mp3lis.size() > 1) {
-                                Mp3lis.clear(); 
+                            if (Mp3lis.size() > 0) {
+                                Mp3lis.remove(0);
                             }			
                            Hawk.put(HawkConfig.MP3_BG, mVideo.pic);
                         }else{
-                            Mp3lis.clear(); 
+                            if (Mp3lis.size() > 0) {
+                                Mp3lis.remove(0);
+                            }
 						
                         }
 						
