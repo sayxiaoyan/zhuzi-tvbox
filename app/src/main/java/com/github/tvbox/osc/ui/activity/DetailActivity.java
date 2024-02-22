@@ -188,7 +188,6 @@ public class DetailActivity extends BaseActivity {
         mGridViewFlag.setAdapter(seriesFlagAdapter);
         isReverse = false;
         firstReverse = false;
-        Hawk.put(HawkConfig.MP3_BG, "");
         preFlag = "";
         if (showPreview) {
             playFragment = new PlayFragment();
@@ -633,7 +632,13 @@ public class DetailActivity extends BaseActivity {
                         mGridView.setVisibility(View.VISIBLE);
                         tvPlay.setVisibility(View.VISIBLE);
                         mEmptyPlayList.setVisibility(View.GONE);
-
+                        Hawk.put(HawkConfig.MP3_BG, "");
+                        if(vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url.endsWith(".mp3")){//保存设置mp3背景
+                            if(!Hawk.get(HawkConfig.MP3_BG, "").isEmpty()) {
+                                Hawk.put(HawkConfig.MP3_BG, "");
+                            }			
+                           Hawk.put(HawkConfig.MP3_BG, mVideo.pic);
+                        }
                         VodInfo vodInfoRecord = RoomDataManger.getVodInfo(sourceKey, vodId);
                         // 读取历史记录
                         if (vodInfoRecord != null) {
@@ -665,12 +670,7 @@ public class DetailActivity extends BaseActivity {
                                 flag.selected = false;
                         }
 
-                        if(vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url.endsWith(".mp3")){//保存设置mp3背景
-                            if(!Hawk.get(HawkConfig.MP3_BG, "").isEmpty()) {
-                                Hawk.put(HawkConfig.MP3_BG, "");
-                            }			
-                           Hawk.put(HawkConfig.MP3_BG, mVideo.pic);
-                        }
+
 						
                         //设置播放地址
                         setTextShow(tvPlayUrl, "播放地址：", vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url);
