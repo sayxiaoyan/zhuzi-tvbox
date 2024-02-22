@@ -132,7 +132,7 @@ public abstract class BaseController extends BaseVideoController implements Gest
                 mLoading.setVisibility(GONE);
                 if(Hawk.get(HawkConfig.MP3_BG, false)){
                     mp3bg.setVisibility(VISIBLE);//MP3背景有地址，显示
-				}else{
+                }else{
                     mp3bg.setVisibility(GONE);
                 }
                 break;
