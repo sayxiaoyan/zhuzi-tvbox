@@ -204,8 +204,8 @@ public class VodController extends BaseController {
         mp3bg = findViewById(R.id.mp3bg);//MP3背景
 
         initSubtitleInfo();
-		
-        if (Hawk.get(HawkConfig.MP3_BG, false) != null ) {
+
+        if(!Hawk.get(HawkConfig.MP3_BG, "").isEmpty()) {
             Picasso.get()
             .load(Hawk.get(HawkConfig.MP3_BG, ""))
             .placeholder(R.drawable.img_loading_placeholder)
