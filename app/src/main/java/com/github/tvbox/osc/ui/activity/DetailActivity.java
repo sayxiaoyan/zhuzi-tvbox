@@ -663,13 +663,12 @@ public class DetailActivity extends BaseActivity {
                             } else
                                 flag.selected = false;
                         }
+						HawkConfig.MP3_BG= "";
                         if(vodInfo.seriesMap.get(vodInfo.playFlag).get(0).url.endsWith(".mp3")){//保存设置mp3背景
                             if(!Hawk.get(HawkConfig.MP3_BG, "").isEmpty()) {
                                 HawkConfig.MP3_BG= "";
                             }			
                            Hawk.put(HawkConfig.MP3_BG, mVideo.pic);
-                        }else{
-                           HawkConfig.MP3_BG= "";			
                         }
 						
                         //设置播放地址
