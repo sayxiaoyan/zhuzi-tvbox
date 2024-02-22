@@ -130,7 +130,7 @@ public abstract class BaseController extends BaseVideoController implements Gest
             case VideoView.STATE_PLAYING:
                 mPauseRoot.setVisibility(GONE);
                 mLoading.setVisibility(GONE);
-                if(Hawk.get(HawkConfig.MP3_BG, false)){
+                if (Hawk.get(HawkConfig.MP3_BG, false) != null && !Hawk.get(HawkConfig.MP3_BG, false).isEmpty()) {
                     mp3bg.setVisibility(VISIBLE);//MP3背景有地址，显示
                 }else{
                     mp3bg.setVisibility(GONE);
