@@ -201,16 +201,16 @@ public class VodController extends BaseController {
         mAudioTrackBtn = findViewById(R.id.audio_track_select);
         mLandscapePortraitBtn = findViewById(R.id.landscape_portrait);
 		
-		mp3bg = findViewById(R.id.mp3bg);//MP3背景
+        mp3bg = findViewById(R.id.mp3bg);//MP3背景
 
         initSubtitleInfo();
 		
-		if(!Hawk.get(HawkConfig.MP3_BG, "").isEmpty()) {
-			Picasso.get()
-			.load(Hawk.get(HawkConfig.MP3_BG, ""))
-			.placeholder(R.drawable.img_loading_placeholder)
-			.error(R.drawable.img_loading_placeholder)
-			.into(mp3bg);
+        if(Hawk.get(HawkConfig.MP3_BG, false)){
+            Picasso.get()
+            .load(Hawk.get(HawkConfig.MP3_BG, ""))
+            .placeholder(R.drawable.img_loading_placeholder)
+            .error(R.drawable.img_loading_placeholder)
+            .into(mp3bg);
 
         }
 
